@@ -11,7 +11,7 @@ Pod::Spec.new do |s|
   s.author       = { "Artyom Devyatov" => "artyomdevyatov@gmail.com" }
   s.platform     = :ios, "8.0"
   s.source       = { :git => "https://github.com/artyomdevyatov/ARTSideMenu.git", :tag => s.version }
-  s.source_files  = "ARTSideMenu"
+  s.source_files  = "ARTSideMenu/*.{swift}"
   s.requires_arc = true
 
 end
