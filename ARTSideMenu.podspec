@@ -11,8 +11,7 @@ Pod::Spec.new do |s|
   s.author       = { "Artyom Devyatov" => "artyomdevyatov@gmail.com" }
   s.platform     = :ios, "8.0"
   s.source       = { :git => "https://github.com/artyomdevyatov/ARTSideMenu.git", :tag => s.version }
-  # s.source_files  = "Classes", "Classes/**/*.{h,m}"
-  # s.public_header_files = "Classes/**/*.h"
+  s.source_files  = "sidemenu"
   s.requires_arc = true
 
 end
