@@ -10,6 +10,8 @@ import UIKit
 
 public class ARTSideMenuController: UIViewController {
 
+    public static var sharedController: ARTSideMenuController!
+
     public var menuWidth: CGFloat = 280.0
 
     private var contentController: UIViewController!
@@ -34,6 +36,8 @@ public class ARTSideMenuController: UIViewController {
         view.addGestureRecognizer(hidePanGestureRecognizer)
 
         outsideTapView.addTarget(self, action: "outsideViewTapped:", forControlEvents: .TouchUpInside)
+
+        ARTSideMenuController.sharedController = self
     }
 
     public required init?(coder aDecoder: NSCoder) {
