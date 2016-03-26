@@ -12,7 +12,34 @@ public class ARTSideMenuController: UIViewController {
 
     public static var sharedController: ARTSideMenuController!
 
-    public var menuWidth: CGFloat = 280.0
+    public var menuWidth: CGFloat = 280.0 {
+        didSet {
+            menuView.frame = CGRectMake(view.bounds.width - menuWidth, 0.0, menuWidth, view.bounds.height)
+        }
+    }
+    public var animationDuration = 0.3
+    public var animationOptions = UIViewAnimationOptions.CurveEaseOut
+    public var ignoreGestures = false
+    public var shadowRadius: CGFloat = 3.0 {
+        didSet {
+            contentView.layer.shadowRadius = shadowRadius
+        }
+    }
+    public var shadowOpacity: Float = 0.5 {
+        didSet {
+            contentView.layer.shadowOpacity = shadowOpacity
+        }
+    }
+    public var shadowOffset = CGSize(width: 0.0, height: -3.0) {
+        didSet {
+            contentView.layer.shadowOffset = shadowOffset
+        }
+    }
+    public var shadowColor = UIColor.blackColor() {
+        didSet {
+            contentView.layer.shadowColor = shadowColor.CGColor
+        }
+    }
 
     private var contentController: UIViewController!
     private var menuController: UIViewController!
@@ -48,9 +75,14 @@ public class ARTSideMenuController: UIViewController {
     public override func viewDidLoad() {
         super.viewDidLoad()
 
-        view.addSubview(menuView)
-        view.addSubview(contentView)
+        configureContainerViews()
+        configureShadow()
+        hideMenuAnimated(false)
+    }
 
+    // MARK: - Configuration
+
+    private func configureContainerViews() {
         let contentFrame = CGRectMake(0.0, 0.0, view.bounds.width, view.bounds.height)
         let menuFrame = CGRectMake(view.bounds.width - menuWidth, 0.0, menuWidth, view.bounds.height)
 
@@ -64,13 +96,24 @@ public class ARTSideMenuController: UIViewController {
         contentController.view.frame = contentView.bounds
         menuController.view.frame = menuView.bounds
 
-        contentView.layer.shadowColor = UIColor.blackColor().CGColor
-        contentView.layer.shadowOpacity = 1.0
-
-        hideMenuAnimated(false)
+        view.addSubview(menuView)
+        view.addSubview(contentView)
     }
 
+    private func configureShadow() {
+        contentView.layer.shadowRadius = shadowRadius
+        contentView.layer.shadowOpacity = shadowOpacity
+        contentView.layer.shadowOffset = shadowOffset
+        contentView.layer.shadowColor = shadowColor.CGColor
+    }
+
+    // MARK: - Events
+
     internal func handleShowPan(recognizer: UIScreenEdgePanGestureRecognizer) {
+        if ignoreGestures {
+            return
+        }
+
         let translation = recognizer.translationInView(contentView)
         switch recognizer.state {
         case .Began, .Changed:
@@ -89,6 +132,10 @@ public class ARTSideMenuController: UIViewController {
     }
 
     internal func handleHidePan(recognizer: UIPanGestureRecognizer) {
+        if ignoreGestures {
+            return
+        }
+
         let translation = recognizer.translationInView(contentView)
         switch recognizer.state {
         case .Began, .Changed:
@@ -107,20 +154,20 @@ public class ARTSideMenuController: UIViewController {
     }
 
     public func showMenuAnimated(animated: Bool) {
-        let animationDuration = animated ? 0.1 : 0.0
-        UIView.animateWithDuration(animationDuration) { () -> Void in
+        let duration = animated ? animationDuration : 0.0
+        UIView.animateWithDuration(duration, delay: 0.0, options: animationOptions, animations: { () -> Void in
             self.contentView.frame.origin.x = -self.menuWidth
-        }
+        }, completion: nil)
         contentView.addSubview(outsideTapView)
         showPanGestureRecognizer.enabled = false
         hidePanGestureRecognizer.enabled = true
     }
 
     public func hideMenuAnimated(animated: Bool) {
-        let animationDuration = animated ? 0.1 : 0.0
-        UIView.animateWithDuration(animationDuration) { () -> Void in
+        let duration = animated ? animationDuration : 0.0
+        UIView.animateWithDuration(duration, delay: 0.0, options: animationOptions, animations: { () -> Void in
             self.contentView.frame.origin.x = 0.0
-        }
+        }, completion: nil)
         outsideTapView.removeFromSuperview()
         showPanGestureRecognizer.enabled = true
         hidePanGestureRecognizer.enabled = false

@@ -12,7 +12,8 @@
 		2F7B311B1CA74ABE008ED330 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F7B31191CA74ABE008ED330 /* LaunchScreen.storyboard */; };
 		2F7B31231CA74AD8008ED330 /* ContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F7B31221CA74AD8008ED330 /* ContentViewController.swift */; };
 		2F7B31251CA74AE4008ED330 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F7B31241CA74AE4008ED330 /* AppDelegate.swift */; };
-		2F7B312C1CA74B73008ED330 /* ARTSideMenu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F7B312B1CA74B5E008ED330 /* ARTSideMenu.framework */; };
+		2F7B312F1CA74D91008ED330 /* ARTSideMenu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F7B312B1CA74B5E008ED330 /* ARTSideMenu.framework */; };
+		2F7B31301CA74D91008ED330 /* ARTSideMenu.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2F7B312B1CA74B5E008ED330 /* ARTSideMenu.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -23,7 +24,28 @@
 			remoteGlobalIDString = 2F7B30BB1CA7493E008ED330;
 			remoteInfo = ARTSideMenu;
 		};
+		2F7B31311CA74D91008ED330 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2F7B31261CA74B5E008ED330 /* ARTSideMenu.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 2F7B30BA1CA7493E008ED330;
+			remoteInfo = ARTSideMenu;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		2F7B31331CA74D91008ED330 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				2F7B31301CA74D91008ED330 /* ARTSideMenu.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		2F7B310D1CA74ABE008ED330 /* ARTSideMenuExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ARTSideMenuExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -41,7 +63,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2F7B312C1CA74B73008ED330 /* ARTSideMenu.framework in Frameworks */,
+				2F7B312F1CA74D91008ED330 /* ARTSideMenu.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -96,10 +118,12 @@
 				2F7B31091CA74ABE008ED330 /* Sources */,
 				2F7B310A1CA74ABE008ED330 /* Frameworks */,
 				2F7B310B1CA74ABE008ED330 /* Resources */,
+				2F7B31331CA74D91008ED330 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				2F7B31321CA74D91008ED330 /* PBXTargetDependency */,
 			);
 			name = ARTSideMenuExample;
 			productName = ARTSideMenuExample;
@@ -179,6 +203,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		2F7B31321CA74D91008ED330 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = ARTSideMenu;
+			targetProxy = 2F7B31311CA74D91008ED330 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		2F7B31141CA74ABE008ED330 /* Main.storyboard */ = {
@@ -287,6 +319,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = ARTSideMenuExample/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -299,6 +332,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = ARTSideMenuExample/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

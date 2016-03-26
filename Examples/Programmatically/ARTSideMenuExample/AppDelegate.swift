@@ -26,7 +26,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let contentController = storyboard.instantiateViewControllerWithIdentifier("ContentNavigationController")
         let menuController = UITableViewController()
-        menuController.view.backgroundColor = UIColor.grayColor()
         let sideMenuController = ARTSideMenuController(contentController: contentController, menuController: menuController)
 
         return sideMenuController
