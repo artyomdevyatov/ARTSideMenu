@@ -8,9 +8,9 @@
 
 import UIKit
 
-class ARTSideMenuController: UIViewController {
+public class ARTSideMenuController: UIViewController {
 
-    var menuWidth: CGFloat = 280.0
+    public var menuWidth: CGFloat = 280.0
 
     private var contentController: UIViewController!
     private var menuController: UIViewController!
@@ -20,7 +20,7 @@ class ARTSideMenuController: UIViewController {
     private var showPanGestureRecognizer: UIScreenEdgePanGestureRecognizer!
     private var hidePanGestureRecognizer: UIPanGestureRecognizer!
 
-    init(contentController: UIViewController, menuController: UIViewController) {
+    public init(contentController: UIViewController, menuController: UIViewController) {
         super.init(nibName: nil, bundle: nil)
 
         self.contentController = contentController
@@ -36,12 +36,12 @@ class ARTSideMenuController: UIViewController {
         outsideTapView.addTarget(self, action: "outsideViewTapped:", forControlEvents: .TouchUpInside)
     }
 
-    required init?(coder aDecoder: NSCoder) {
+    public required init?(coder aDecoder: NSCoder) {
         fatalError("Creation via Storyboard unavailable. Use init(contentController:menuController) instead.")
     }
 
 
-    override func viewDidLoad() {
+    public override func viewDidLoad() {
         super.viewDidLoad()
 
         view.addSubview(menuView)
@@ -66,7 +66,7 @@ class ARTSideMenuController: UIViewController {
         hideMenuAnimated(false)
     }
 
-    func handleShowPan(recognizer: UIScreenEdgePanGestureRecognizer) {
+    internal func handleShowPan(recognizer: UIScreenEdgePanGestureRecognizer) {
         let translation = recognizer.translationInView(contentView)
         switch recognizer.state {
         case .Began, .Changed:
@@ -84,7 +84,7 @@ class ARTSideMenuController: UIViewController {
         }
     }
 
-    func handleHidePan(recognizer: UIPanGestureRecognizer) {
+    internal func handleHidePan(recognizer: UIPanGestureRecognizer) {
         let translation = recognizer.translationInView(contentView)
         switch recognizer.state {
         case .Began, .Changed:
@@ -102,7 +102,7 @@ class ARTSideMenuController: UIViewController {
         }
     }
 
-    func showMenuAnimated(animated: Bool) {
+    public func showMenuAnimated(animated: Bool) {
         let animationDuration = animated ? 0.1 : 0.0
         UIView.animateWithDuration(animationDuration) { () -> Void in
             self.contentView.frame.origin.x = -self.menuWidth
@@ -112,7 +112,7 @@ class ARTSideMenuController: UIViewController {
         hidePanGestureRecognizer.enabled = true
     }
 
-    func hideMenuAnimated(animated: Bool) {
+    public func hideMenuAnimated(animated: Bool) {
         let animationDuration = animated ? 0.1 : 0.0
         UIView.animateWithDuration(animationDuration) { () -> Void in
             self.contentView.frame.origin.x = 0.0
@@ -122,7 +122,7 @@ class ARTSideMenuController: UIViewController {
         hidePanGestureRecognizer.enabled = false
     }
 
-    func outsideViewTapped(sender: UIButton) {
+    internal func outsideViewTapped(sender: UIButton) {
         hideMenuAnimated(true)
     }
 
