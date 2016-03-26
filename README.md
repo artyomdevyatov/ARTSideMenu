@@ -1,2 +1,2 @@
 # ARTSideMenu
-Simpliest side menu written via Swift
+Simpliest iOS side menu written in Swift
