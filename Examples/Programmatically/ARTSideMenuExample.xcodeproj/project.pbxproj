@@ -12,21 +12,21 @@
 		2F7B311B1CA74ABE008ED330 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F7B31191CA74ABE008ED330 /* LaunchScreen.storyboard */; };
 		2F7B31231CA74AD8008ED330 /* ContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F7B31221CA74AD8008ED330 /* ContentViewController.swift */; };
 		2F7B31251CA74AE4008ED330 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F7B31241CA74AE4008ED330 /* AppDelegate.swift */; };
-		2F7B312F1CA74D91008ED330 /* ARTSideMenu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F7B312B1CA74B5E008ED330 /* ARTSideMenu.framework */; };
-		2F7B31301CA74D91008ED330 /* ARTSideMenu.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2F7B312B1CA74B5E008ED330 /* ARTSideMenu.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		2F7B313E1CA75933008ED330 /* ARTSideMenu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F7B313D1CA75833008ED330 /* ARTSideMenu.framework */; };
+		2F7B313F1CA75933008ED330 /* ARTSideMenu.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2F7B313D1CA75833008ED330 /* ARTSideMenu.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		2F7B312A1CA74B5E008ED330 /* PBXContainerItemProxy */ = {
+		2F7B313C1CA75833008ED330 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 2F7B31261CA74B5E008ED330 /* ARTSideMenu.xcodeproj */;
+			containerPortal = 2F7B31381CA75833008ED330 /* ARTSideMenu.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 2F7B30BB1CA7493E008ED330;
 			remoteInfo = ARTSideMenu;
 		};
-		2F7B31311CA74D91008ED330 /* PBXContainerItemProxy */ = {
+		2F7B31401CA75933008ED330 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 2F7B31261CA74B5E008ED330 /* ARTSideMenu.xcodeproj */;
+			containerPortal = 2F7B31381CA75833008ED330 /* ARTSideMenu.xcodeproj */;
 			proxyType = 1;
 			remoteGlobalIDString = 2F7B30BA1CA7493E008ED330;
 			remoteInfo = ARTSideMenu;
@@ -40,7 +40,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				2F7B31301CA74D91008ED330 /* ARTSideMenu.framework in Embed Frameworks */,
+				2F7B313F1CA75933008ED330 /* ARTSideMenu.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -55,7 +55,7 @@
 		2F7B311C1CA74ABE008ED330 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2F7B31221CA74AD8008ED330 /* ContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentViewController.swift; sourceTree = "<group>"; };
 		2F7B31241CA74AE4008ED330 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		2F7B31261CA74B5E008ED330 /* ARTSideMenu.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ARTSideMenu.xcodeproj; path = ../../ARTSideMenu/ARTSideMenu.xcodeproj; sourceTree = "<group>"; };
+		2F7B31381CA75833008ED330 /* ARTSideMenu.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ARTSideMenu.xcodeproj; path = ../../ARTSideMenu.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,7 +63,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2F7B312F1CA74D91008ED330 /* ARTSideMenu.framework in Frameworks */,
+				2F7B313E1CA75933008ED330 /* ARTSideMenu.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -75,7 +75,7 @@
 			children = (
 				2F7B310F1CA74ABE008ED330 /* ARTSideMenuExample */,
 				2F7B310E1CA74ABE008ED330 /* Products */,
-				2F7B31261CA74B5E008ED330 /* ARTSideMenu.xcodeproj */,
+				2F7B31381CA75833008ED330 /* ARTSideMenu.xcodeproj */,
 			);
 			sourceTree = "<group>";
 		};
@@ -100,10 +100,10 @@
 			path = ARTSideMenuExample;
 			sourceTree = "<group>";
 		};
-		2F7B31271CA74B5E008ED330 /* Products */ = {
+		2F7B31391CA75833008ED330 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				2F7B312B1CA74B5E008ED330 /* ARTSideMenu.framework */,
+				2F7B313D1CA75833008ED330 /* ARTSideMenu.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -123,7 +123,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				2F7B31321CA74D91008ED330 /* PBXTargetDependency */,
+				2F7B31411CA75933008ED330 /* PBXTargetDependency */,
 			);
 			name = ARTSideMenuExample;
 			productName = ARTSideMenuExample;
@@ -158,8 +158,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = 2F7B31271CA74B5E008ED330 /* Products */;
-					ProjectRef = 2F7B31261CA74B5E008ED330 /* ARTSideMenu.xcodeproj */;
+					ProductGroup = 2F7B31391CA75833008ED330 /* Products */;
+					ProjectRef = 2F7B31381CA75833008ED330 /* ARTSideMenu.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -170,11 +170,11 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		2F7B312B1CA74B5E008ED330 /* ARTSideMenu.framework */ = {
+		2F7B313D1CA75833008ED330 /* ARTSideMenu.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = ARTSideMenu.framework;
-			remoteRef = 2F7B312A1CA74B5E008ED330 /* PBXContainerItemProxy */;
+			remoteRef = 2F7B313C1CA75833008ED330 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -205,10 +205,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		2F7B31321CA74D91008ED330 /* PBXTargetDependency */ = {
+		2F7B31411CA75933008ED330 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = ARTSideMenu;
-			targetProxy = 2F7B31311CA74D91008ED330 /* PBXContainerItemProxy */;
+			targetProxy = 2F7B31401CA75933008ED330 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 

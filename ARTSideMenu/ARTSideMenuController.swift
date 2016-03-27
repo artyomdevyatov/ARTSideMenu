@@ -83,21 +83,24 @@ public class ARTSideMenuController: UIViewController {
     // MARK: - Configuration
 
     private func configureContainerViews() {
-        let contentFrame = CGRectMake(0.0, 0.0, view.bounds.width, view.bounds.height)
-        let menuFrame = CGRectMake(view.bounds.width - menuWidth, 0.0, menuWidth, view.bounds.height)
-
-        contentView.frame = contentFrame
-        menuView.frame = menuFrame
-        outsideTapView.frame = contentView.bounds
-
-        contentView.addSubview(contentController.view)
-        menuView.addSubview(menuController.view)
-
-        contentController.view.frame = contentView.bounds
-        menuController.view.frame = menuView.bounds
-
         view.addSubview(menuView)
         view.addSubview(contentView)
+
+        addChildViewController(menuController)
+        let menuFrame = CGRectMake(view.bounds.width - menuWidth, 0.0, menuWidth, view.bounds.height)
+        menuView.frame = menuFrame
+        menuController.view.frame = menuView.bounds
+        menuView.addSubview(menuController.view)
+        menuController.didMoveToParentViewController(self)
+
+        addChildViewController(contentController)
+        let contentFrame = CGRectMake(0.0, 0.0, view.bounds.width, view.bounds.height)
+        contentView.frame = contentFrame
+        contentController.view.frame = contentView.bounds
+        contentView.addSubview(contentController.view)
+        contentController.didMoveToParentViewController(self)
+
+        outsideTapView.frame = contentView.bounds
     }
 
     private func configureShadow() {
