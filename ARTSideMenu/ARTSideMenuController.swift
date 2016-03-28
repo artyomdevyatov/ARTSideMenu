@@ -12,6 +12,8 @@ public class ARTSideMenuController: UIViewController {
 
     public static var sharedController: ARTSideMenuController!
 
+    @IBInspectable public var contentIdentifier: String = ""
+    @IBInspectable public var menuIdentifier: String = ""
     public var menuWidth: CGFloat = 280.0 {
         didSet {
             menuView.frame = CGRectMake(view.bounds.width - menuWidth, 0.0, menuWidth, view.bounds.height)
@@ -82,13 +84,13 @@ public class ARTSideMenuController: UIViewController {
     // MARK: - Configuration
 
     private func configureChildControllersAfterStoryboardCreation() {
-        if let contentController = storyboard?.instantiateViewControllerWithIdentifier("ARTContentController") {
+        if let contentController = storyboard?.instantiateViewControllerWithIdentifier(contentIdentifier) {
             self.contentController = contentController
         } else {
             assertionFailure("ARTContentController storyboard identifier not defined")
         }
 
-        if let menuController = storyboard?.instantiateViewControllerWithIdentifier("ARTMenuController") {
+        if let menuController = storyboard?.instantiateViewControllerWithIdentifier(menuIdentifier) {
             self.menuController = menuController
         } else {
             assertionFailure("ARTContentController storyboard identifier not defined")

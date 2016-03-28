@@ -43,6 +43,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="contentIdentifier" value="ContentController"/>
+                        <userDefinedRuntimeAttribute type="string" keyPath="menuIdentifier" value="MenuController"/>
+                    </userDefinedRuntimeAttributes>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WeY-es-DFj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -51,7 +55,7 @@
         <!--Table View Controller-->
         <scene sceneID="1WE-O6-c0x">
             <objects>
-                <tableViewController storyboardIdentifier="ARTMenuController" id="ubI-uE-dwD" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="MenuController" id="ubI-uE-dwD" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Dp1-Ic-E8w">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -61,7 +65,7 @@
                                 <rect key="frame" x="0.0" y="28" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ql9-sC-vFe" id="eRz-jG-X1v">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -79,7 +83,7 @@
         <!--Navigation Controller-->
         <scene sceneID="8ds-LY-qX0">
             <objects>
-                <navigationController storyboardIdentifier="ARTContentController" automaticallyAdjustsScrollViewInsets="NO" id="bW7-6y-SBY" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="ContentController" automaticallyAdjustsScrollViewInsets="NO" id="bW7-6y-SBY" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="TTn-8a-Oh3">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
