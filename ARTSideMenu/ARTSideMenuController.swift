@@ -41,9 +41,10 @@ public class ARTSideMenuController: UIViewController {
         }
     }
 
+    private(set) var contentController: UIViewController!
+    private(set) var menuController: UIViewController!
+
     private var storyboardCreation = false
-    private var contentController: UIViewController!
-    private var menuController: UIViewController!
     private var contentView = UIView()
     private var menuView = UIView()
     private var outsideTapView = UIButton()
