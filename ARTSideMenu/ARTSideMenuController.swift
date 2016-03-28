@@ -41,6 +41,7 @@ public class ARTSideMenuController: UIViewController {
         }
     }
 
+    private var storyboardCreation = false
     private var contentController: UIViewController!
     private var menuController: UIViewController!
     private var contentView = UIView()
@@ -55,6 +56,45 @@ public class ARTSideMenuController: UIViewController {
         self.contentController = contentController
         self.menuController = menuController
 
+        ARTSideMenuController.sharedController = self
+    }
+
+    public required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+
+        storyboardCreation = true
+        ARTSideMenuController.sharedController = self
+    }
+
+    public override func viewDidLoad() {
+        super.viewDidLoad()
+
+        if storyboardCreation {
+            configureChildControllersAfterStoryboardCreation()
+        }
+        configureGestureRecognizers()
+        configureContainerViews()
+        configureShadow()
+        hideMenuAnimated(false)
+    }
+
+    // MARK: - Configuration
+
+    private func configureChildControllersAfterStoryboardCreation() {
+        if let contentController = storyboard?.instantiateViewControllerWithIdentifier("ARTContentController") {
+            self.contentController = contentController
+        } else {
+            assertionFailure("ARTContentController storyboard identifier not defined")
+        }
+
+        if let menuController = storyboard?.instantiateViewControllerWithIdentifier("ARTMenuController") {
+            self.menuController = menuController
+        } else {
+            assertionFailure("ARTContentController storyboard identifier not defined")
+        }
+    }
+
+    private func configureGestureRecognizers() {
         showPanGestureRecognizer = UIScreenEdgePanGestureRecognizer(target: self, action: "handleShowPan:")
         showPanGestureRecognizer.edges = UIRectEdge.Right
         contentView.addGestureRecognizer(showPanGestureRecognizer)
@@ -63,24 +103,7 @@ public class ARTSideMenuController: UIViewController {
         view.addGestureRecognizer(hidePanGestureRecognizer)
 
         outsideTapView.addTarget(self, action: "outsideViewTapped:", forControlEvents: .TouchUpInside)
-
-        ARTSideMenuController.sharedController = self
     }
-
-    public required init?(coder aDecoder: NSCoder) {
-        fatalError("Creation via Storyboard unavailable. Use init(contentController:menuController) instead.")
-    }
-
-
-    public override func viewDidLoad() {
-        super.viewDidLoad()
-
-        configureContainerViews()
-        configureShadow()
-        hideMenuAnimated(false)
-    }
-
-    // MARK: - Configuration
 
     private func configureContainerViews() {
         view.addSubview(menuView)
