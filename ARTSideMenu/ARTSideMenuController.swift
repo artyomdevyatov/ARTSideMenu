@@ -206,4 +206,12 @@ public class ARTSideMenuController: UIViewController {
         hideMenuAnimated(true)
     }
 
+    override public func preferredStatusBarStyle() -> UIStatusBarStyle {
+        if contentController != nil {
+            return contentController.preferredStatusBarStyle()
+        } else {
+            return .Default
+        }
+    }
+
 }
