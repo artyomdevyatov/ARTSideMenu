@@ -45,10 +45,10 @@ public class ARTSideMenuController: UIViewController {
 
     private(set) public var contentController: UIViewController!
     private(set) public var menuController: UIViewController!
+    private(set) public var contentView = UIView()
+    private(set) public var menuView = UIView()
 
     private var storyboardCreation = false
-    private var contentView = UIView()
-    private var menuView = UIView()
     private var outsideTapView = UIButton()
     private var showPanGestureRecognizer: UIScreenEdgePanGestureRecognizer!
     private var hidePanGestureRecognizer: UIPanGestureRecognizer!
@@ -98,14 +98,17 @@ public class ARTSideMenuController: UIViewController {
     }
 
     private func configureGestureRecognizers() {
-        showPanGestureRecognizer = UIScreenEdgePanGestureRecognizer(target: self, action: "handleShowPan:")
+        showPanGestureRecognizer = UIScreenEdgePanGestureRecognizer(target: self,
+            action: #selector(ARTSideMenuController.handleShowPan(_:)))
         showPanGestureRecognizer.edges = UIRectEdge.Right
         contentView.addGestureRecognizer(showPanGestureRecognizer)
 
-        hidePanGestureRecognizer = UIPanGestureRecognizer(target: self, action: "handleHidePan:")
+        hidePanGestureRecognizer = UIPanGestureRecognizer(target: self,
+            action: #selector(ARTSideMenuController.handleHidePan(_:)))
         view.addGestureRecognizer(hidePanGestureRecognizer)
 
-        outsideTapView.addTarget(self, action: "outsideViewTapped:", forControlEvents: .TouchUpInside)
+        outsideTapView.addTarget(self, action: #selector(ARTSideMenuController.outsideViewTapped(_:)),
+            forControlEvents: .TouchUpInside)
     }
 
     private func configureContainerViews() {
@@ -211,6 +214,19 @@ public class ARTSideMenuController: UIViewController {
             return contentController.preferredStatusBarStyle()
         } else {
             return .Default
+        }
+    }
+
+    // MARK: - Other
+
+    public override func viewWillTransitionToSize(size: CGSize,
+    withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransitionToSize(size, withTransitionCoordinator: coordinator)
+
+        UIView.animateWithDuration(coordinator.transitionDuration()) {
+            self.contentView.frame.size = size
+            let menuFrame = CGRectMake(size.width - self.menuWidth, 0.0, self.menuWidth, size.height)
+            self.menuView.frame = menuFrame
         }
     }
 
