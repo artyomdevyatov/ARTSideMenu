@@ -81,6 +81,14 @@ public class ARTSideMenuController: UIViewController {
         hideMenuAnimated(false)
     }
 
+    public override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+
+        UIView.animateWithDuration(animationDuration) {
+            self.configureForSize(self.view.bounds.size)
+        }
+    }
+
     // MARK: - Configuration
 
     private func configureChildControllersAfterStoryboardCreation() {
@@ -137,6 +145,12 @@ public class ARTSideMenuController: UIViewController {
         contentView.layer.shadowOpacity = shadowOpacity
         contentView.layer.shadowOffset = shadowOffset
         contentView.layer.shadowColor = shadowColor.CGColor
+    }
+
+    private func configureForSize(size: CGSize) {
+        self.contentView.frame.size = size
+        let menuFrame = CGRectMake(size.width - self.menuWidth, 0.0, self.menuWidth, size.height)
+        self.menuView.frame = menuFrame
     }
 
     // MARK: - Events
@@ -224,9 +238,7 @@ public class ARTSideMenuController: UIViewController {
         super.viewWillTransitionToSize(size, withTransitionCoordinator: coordinator)
 
         UIView.animateWithDuration(coordinator.transitionDuration()) {
-            self.contentView.frame.size = size
-            let menuFrame = CGRectMake(size.width - self.menuWidth, 0.0, self.menuWidth, size.height)
-            self.menuView.frame = menuFrame
+            self.configureForSize(size)
         }
     }
 
