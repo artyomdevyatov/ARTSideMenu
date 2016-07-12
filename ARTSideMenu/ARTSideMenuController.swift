@@ -81,8 +81,8 @@ public class ARTSideMenuController: UIViewController {
         hideMenuAnimated(false)
     }
 
-    public override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
+    public override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
 
         UIView.animateWithDuration(animationDuration) {
             self.configureForSize(self.view.bounds.size)
