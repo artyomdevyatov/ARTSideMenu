@@ -10,7 +10,7 @@ import UIKit
 
 public class ARTSideMenuController: UIViewController {
 
-    public static var sharedController: ARTSideMenuController!
+    public static weak var sharedController: ARTSideMenuController!
 
     @IBInspectable public var contentIdentifier: String = ""
     @IBInspectable public var menuIdentifier: String = ""
